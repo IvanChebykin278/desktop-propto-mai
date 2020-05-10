@@ -1,0 +1,21 @@
+/* Enter your custom styles here */
+
+.icon-access {
+	color: green;
+	text-shadow: 1px 1px 1px #ccc;
+}
+
+.icon-busy {
+	color: orange;
+	text-shadow: 1px 1px 1px #ccc;
+}
+
+.icon-inaccessible {
+	color: red;
+	text-shadow: 1px 1px 1px #ccc;
+}
+
+.icon-lose {
+	color: gray;
+	text-shadow: 1px 1px 1px #ccc;
+}

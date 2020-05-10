@@ -1,0 +1,169 @@
+<mvc:View 
+	controllerName="dev.desktop.app.controller.App" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	displayBlock="true" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Shell id="shell">
+		<SplitApp mode="ShowHideMode">
+			<masterPages>
+				<Page showHeader="fasle">
+					<IconTabBar
+						class="sapUiResponsiveContentPadding">
+						<items>
+							<IconTabFilter
+								text="Функции">
+								<VBox class="sapUiSmallMargin">
+									<f:Form id="FormChange354"
+										editable="true">
+										<f:layout>
+											<f:ResponsiveGridLayout
+												labelSpanXL="3"
+												labelSpanL="3"
+												labelSpanM="3"
+												labelSpanS="12"
+												adjustLabelSpan="false"
+												emptySpanXL="4"
+												emptySpanL="4"
+												emptySpanM="4"
+												emptySpanS="0"
+												columnsXL="1"
+												columnsL="1"
+												columnsM="1"
+												singleContainerFullSize="false" />
+										</f:layout>
+										<f:formContainers>
+											<f:FormContainer>
+												<f:title>
+													<core:Title text="Отправить сотрудика" />
+												</f:title>
+												<f:formElements>
+													<f:FormElement label="Сотрудник">
+														<f:fields>
+															<ObjectStatus
+																text="{
+																	path: 'appView>/selectedStuff/name',
+																	formatter: '.formatter.stuffName'
+																}"
+																icon="{
+																	path: 'appView>/selectedStuff/status',
+																	formatter: '.formatter.stuffIcon'
+																}"
+																state="{
+																	path: 'appView>/selectedStuff/status',
+																	formatter: '.formatter.stuffStatus'
+																}" />
+															<Button
+																press=".onNearestButtonClick"
+																width='50%'
+																text="Ближайший" />
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="Наименование работ">
+														<f:fields>
+															<Input />
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="Вырать на карте">
+														<f:fields>
+															<Switch change=".onSwitchClick" state="true">
+																<layoutData>
+																	<FlexItemData growFactor="1" />
+																</layoutData>
+															</Switch>
+															<ObjectStatus 
+																visible="{appView>/isMyPosition}"
+																icon="{
+																	path: 'appView>/myPosition',
+																	formatter: '.formatter.myPositionIcon'
+																}"
+																text="{
+																	path: 'appView>/myPosition',
+																	formatter: '.formatter.myPositionText'
+																}"
+																state="{
+																	path: 'appView>/myPosition',
+																	formatter: '.formatter.myPositionStatus'
+																}"/>
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement
+														visible="{
+															path: 'appView>/isMyPosition',
+															formatter: '.formatter.isMyPosition'
+														}"
+														label="Локация">
+														<f:fields>
+															<Select
+																id="selectedZone"
+																change=".onSelectChange"
+																items="{zones>/}">
+																<core:Item key="{zones>id}" text="{zones>name}" />
+															</Select>
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="Инструмент">
+														<f:fields>
+															<Select
+																id="selectedTool"
+																change=".onSelectChange"
+																items="{tools>/}">
+																<core:Item key="{tools>id}" text="{tools>name}" />
+															</Select>
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="Комментарий">
+														<f:fields>
+															<TextArea />
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement>
+														<f:fields>
+															<Button enabled="true" text="Отправить" press=".onSubmitClick" />
+														</f:fields>
+													</f:FormElement>
+												</f:formElements>
+											</f:FormContainer>
+										</f:formContainers>
+									</f:Form>
+									<Button text="Отчет" press=".onOrderPress" />
+								</VBox>
+							</IconTabFilter>
+							<IconTabFilter
+								text="Оповещения">
+								<NotificationListGroup
+									title="Оповещения"
+									items="{alerts>/}"
+									showCloseButton="true"
+									close="onItemClose">
+									<NotificationListItem
+										authorName="{alerts>authorName}"
+										title="{alerts>title}"
+										description="{alerts>description}"
+										showCloseButton="true"
+										datetime="{alerts>datetime}"
+										unread="{alerts>unread}"
+										priority="None"
+									>
+										<buttons>
+											<Button press='.onOpenDialog' text='Информация о сотруднике' />
+											<Button text='Прочитано' />
+										</buttons>
+									</NotificationListItem>
+								</NotificationListGroup>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</Page>
+			</masterPages>
+			<detailPages>
+				<Page showHeader="fasle">
+					<html:div id="map" style="width:100%; height:100%"></html:div>
+				</Page>
+			</detailPages>
+		</SplitApp>
+	</Shell>
+</mvc:View>

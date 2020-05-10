@@ -1,0 +1,65 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" >
+   <Dialog
+      id="helloDialog"
+      title="Информиция о сотруднке">
+   	<VBox class="sapUiSmallMargin">
+									<f:Form id="FormChange355"
+										editable="true">
+										<f:layout>
+											<f:ResponsiveGridLayout
+												labelSpanXL="3"
+												labelSpanL="3"
+												labelSpanM="3"
+												labelSpanS="12"
+												adjustLabelSpan="false"
+												emptySpanXL="4"
+												emptySpanL="4"
+												emptySpanM="4"
+												emptySpanS="0"
+												columnsXL="1"
+												columnsL="1"
+												columnsM="1"
+												singleContainerFullSize="false" />
+										</f:layout>
+										<f:formContainers>
+											<f:FormContainer>
+												<f:formElements>
+													<f:FormElement label="Сотрудник">
+														<f:fields>
+															<Text text='Иван Иванов' />
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="Должность">
+														<f:fields>
+															<Text text='Грузчик' />
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="Текущее местоположение">
+														<f:fields>
+															<Text text='Летное поле' />
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="Плановое местоположение">
+														<f:fields>
+															<Text text='Главный термная' />
+														</f:fields>
+													</f:FormElement>
+													<f:FormElement label="Выполняемая работа">
+														<f:fields>
+															<Text text='Погрузка багажа на летне №2' />
+														</f:fields>
+													</f:FormElement>
+												</f:formElements>
+											</f:FormContainer>
+										</f:formContainers>
+									</f:Form>
+								</VBox>
+		<endButton>
+			<Button text='Закрыть' press=".dialogClose" />
+		</endButton>
+   </Dialog>
+</core:FragmentDefinition>
